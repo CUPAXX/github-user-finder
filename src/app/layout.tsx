@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { roboto } from "./utils/Fonts";
+import { roboto } from "../utils/Fonts";
 import "./globals.css";
+import Header from "@src/components/header/header";
 
 export const metadata: Metadata = {
   title: "GitHub User Finder",
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto}`}>
+        <Header />
         {children}
       </body>
     </html>

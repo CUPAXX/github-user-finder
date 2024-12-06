@@ -1,56 +1,8 @@
 .container {
-  height: 100dvh;
-  background-color: #393e46;
-  display: flex;
-  flex-direction: column;
-}
-
-.headerContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 15px 20px 15px 20px;
-  background-color: #222831;
-  border-bottom: solid 2px #00adb5;
-  gap: 14px;
-}
-
-.logo {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  color: #00adb5;
-}
-
-.logo h1 {
-  font-size: 25px;
-}
-
-.searchContainer {
-  background-color: #eeeeee;
-  border: solid 2px #222831;
-  border-radius: 10px;
-  width: 100%;
-  padding: 15px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  color: #393e46;
-}
-
-.searchContainer input {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  background-color: unset;
-  font-weight: 600;
   flex: 1;
-}
-
-.searchContainer:focus-within {
-  border: solid 2px #00adb5;
+  background-color: var(--secondary-gray);
+  display: flex;
+  flex-direction: column;
 }
 
 .emptySearch {
@@ -60,29 +12,76 @@
   flex: 1;
   font-size: 20px;
   font-weight: 500;
-  color: #222831;
+  color: var(--main-gray);
+}
+
+.containerResults {
+  margin: 20px;
+}
+
+.resultsInfo {
+  background-color: var(--main-blue);
+  color: var(--main-gray);
+  text-align: center;
+}
+
+.containerPagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin: 25px 0 25px 0;
+}
+
+.containerPagination button {
+  background-color: var(--main-blue);
+  padding: 10px 20px 10px 20px;
+  color: var(--main-gray);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.containerPagination button:active {
+  background-color: var(--main-white);
+}
+
+.containerPagination button:disabled {
+  background-color: gray;
 }
 
 @media only screen and (min-width: 768px) {
   /* For tablet: */
+
+  .containerResults {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin: 20px 100px 20px 100px;
+  }
 }
 
 @media only screen and (min-width: 1280px) {
   /* For desktop: */
-  .headerContainer {
-    flex-direction: row;
-  }
-
-  .logo h1 {
-    font-size: 35px;
-  }
 
   .emptySearch {
     font-size: 30px;
-
   }
 
-  .searchContainer {
-    width: 700px;
+  .containerResults {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin: 20px 100px 20px 100px;
   }
 }

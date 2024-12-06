@@ -1,0 +1,30 @@
+.container {
+  background-color: var(--main-white);
+  padding: 10px;
+  color: var(--main-gray);
+  border-radius: 5px;
+}
+
+.container h3 {
+  color: var(--main-blue);
+  font-size: 18px;
+}
+
+.repoDescription {
+  font-size: 14px;
+  padding: 10px 0 10px 0;
+  margin-bottom: 15px;
+}
+
+.repoFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.repoCode {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

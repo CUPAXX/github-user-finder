@@ -1,6 +1,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --main-gray: #222831;
+  --secondary-gray: #393e46;
+  --main-blue: #00adb5;
+  --main-white: #eeeeee;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,6 +18,9 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
 }
 
 body {
