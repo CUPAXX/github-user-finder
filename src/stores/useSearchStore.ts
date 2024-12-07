@@ -2,7 +2,6 @@
 import { create } from "zustand";
 
 export interface searchData {
-  incomplete_results: boolean;
   items: any;
   total_count: number;
   current_page: number;
@@ -25,7 +24,6 @@ type Action = {
 
 const initialState: State = {
   searchData: {
-    incomplete_results: false,
     items: [],
     total_count: 0,
     current_page: 1,
@@ -40,8 +38,8 @@ export const useSearchStore = create<State & Action>((set, get) => ({
   searchData: {
     ...initialState.searchData,
   },
-  searchInput: "",
-  isLoading: false,
+  searchInput: initialState.searchInput,
+  isLoading: initialState.isLoading,
   updateSearchInput: (searchInput) => set(() => ({ searchInput: searchInput })),
   updateData: (searchData) => set(() => ({ searchData: searchData })),
   resetSearchData: () => {

@@ -2,6 +2,8 @@
   padding: 10px;
   background-color: var(--secondary-gray);
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .containerProfile {
@@ -45,7 +47,7 @@
   border-top: solid 1px var(--main-blue);
   padding-top: 15px;
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 1fr;
   gap: 15px;
 }
 
@@ -62,14 +64,14 @@
     font-size: 25px;
   }
   .containerRepository {
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media only screen and (min-width: 1280px) {
   /* For desktop: */
-  
+
   .containerRepository {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

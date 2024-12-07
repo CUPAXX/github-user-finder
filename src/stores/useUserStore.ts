@@ -7,6 +7,7 @@ export interface userData {
   bio: string;
   login: string;
   repos_url: string;
+  name: string;
 }
 
 type State = {
@@ -17,7 +18,7 @@ type State = {
 type Action = {
   updateUserData: (userData: State["userData"]) => void;
   resetuserData: () => void;
-  updateIsLoading: () => void;
+  updateIsLoading: (isLoading: State["isLoading"]) => void;
 };
 
 const initialState: State = {
@@ -27,23 +28,23 @@ const initialState: State = {
     bio: "",
     login: "",
     repos_url: "",
+    name: "",
   },
   isLoading: false,
 };
 
-export const useUserStore = create<State & Action>((set, get) => ({
+export const useUserStore = create<State & Action>((set) => ({
   userData: {
     ...initialState.userData,
   },
-  searchInput: "",
-  isLoading: false,
+  isLoading: initialState.isLoading,
   updateUserData: (userData) => set(() => ({ userData: userData })),
   resetuserData: () => {
     set(() => ({
       userData: initialState.userData,
     }));
   },
-  updateIsLoading: () => {
-    set(() => ({ isLoading: !get().isLoading }));
+  updateIsLoading: (isLoading) => {
+    set(() => ({ isLoading: isLoading }));
   },
 }));

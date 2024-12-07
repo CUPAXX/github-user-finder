@@ -7,7 +7,6 @@ import UserCard from "@src/components/card/userCard/userCard";
 import { useSearchStore } from "@src/stores/useSearchStore";
 import { apiSearchUsername } from "@src/services/api/search";
 import { isEmpty } from "lodash";
-import { useState } from "react";
 
 export default function Home() {
   const searchData = useSearchStore((state) => state.searchData);
@@ -26,7 +25,18 @@ export default function Home() {
         const page = searchData.current_page + 1;
         const next_page = Math.ceil(res.total_count / 12) > page;
         const prev_page = page > 1;
-        updateData({ current_page: page, next_page, prev_page, ...res });
+        const resData = {
+          current_page: page,
+          next_page,
+          prev_page,
+          items: res.items.map((res: any) => ({
+            avatar_url: res.avatar_url,
+            login: res.login,
+            id: res.id,
+          })),
+          total_count: res.total_count,
+        };
+        updateData(resData);
         updateIsLoading();
       });
     }
@@ -42,7 +52,18 @@ export default function Home() {
         const page = searchData.current_page - 1;
         const next_page = Math.ceil(res.total_count / 12) > page;
         const prev_page = page > 1;
-        updateData({ current_page: page, next_page, prev_page, ...res });
+        const resData = {
+          current_page: page,
+          next_page,
+          prev_page,
+          items: res.items.map((res: any) => ({
+            avatar_url: res.avatar_url,
+            login: res.login,
+            id: res.id,
+          })),
+          total_count: res.total_count,
+        };
+        updateData(resData);
         updateIsLoading();
       });
     }
@@ -51,14 +72,14 @@ export default function Home() {
   if (isLoading) {
     return (
       <div className={styles.container}>
-        <div className={styles.parentLoader}>
-          <div className={styles.loader} />
+        <div className="parentLoader">
+          <div className="loader" />
         </div>
       </div>
     );
   }
 
-  if (isEmpty(searchData.items)) {
+  if (isEmpty(searchData.items) && !isLoading) {
     return (
       <div className={styles.container}>
         <div className={styles.emptySearch}>Start Findings</div>

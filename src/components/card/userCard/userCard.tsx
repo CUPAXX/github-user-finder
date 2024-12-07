@@ -12,6 +12,7 @@ const UserCard = ({ data }: any) => {
           height={100}
           alt="Picture of the author"
           className={styles.image}
+          quality={90}
         />
       </div>
       <div>
