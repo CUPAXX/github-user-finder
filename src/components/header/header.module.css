@@ -46,6 +46,12 @@
   border: solid 2px var(--main-blue);
 }
 
+.searchContainer button {
+  outline: none;
+  border: none;
+  padding: 0 0 0 20px;
+}
+
 @media only screen and (min-width: 768px) {
   /* For tablet: */
   .headerContainer {

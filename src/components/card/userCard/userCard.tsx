@@ -2,12 +2,12 @@ import Image from "next/image";
 import styles from "./userCard.module.css";
 import Link from "next/link";
 
-const UserCard = () => {
+const UserCard = ({ data }: any) => {
   return (
-    <Link href={"/cupaxx"} className={styles.container}>
+    <Link href={`/${data.login}`} className={styles.container}>
       <div>
         <Image
-          src="https://avatars.githubusercontent.com/u/56408053?v=4"
+          src={data.avatar_url}
           width={100}
           height={100}
           alt="Picture of the author"
@@ -15,7 +15,7 @@ const UserCard = () => {
         />
       </div>
       <div>
-        <h1>Muhamad Fiqry Arahmansyah</h1>
+        <h1>{data.login}</h1>
       </div>
     </Link>
   );

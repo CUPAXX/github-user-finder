@@ -1,31 +1,92 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+
 import { BiSolidRightArrow, BiSolidLeftArrow } from "react-icons/bi";
 import styles from "./page.module.css";
 import UserCard from "@src/components/card/userCard/userCard";
+import { useSearchStore } from "@src/stores/useSearchStore";
+import { apiSearchUsername } from "@src/services/api/search";
+import { isEmpty } from "lodash";
+import { useState } from "react";
 
 export default function Home() {
+  const searchData = useSearchStore((state) => state.searchData);
+  const updateData = useSearchStore((state) => state.updateData);
+  const searchInput = useSearchStore((state) => state.searchInput);
+  const isLoading = useSearchStore((state) => state.isLoading);
+  const updateIsLoading = useSearchStore((state) => state.updateIsLoading);
+
+  const nextPage = () => {
+    if (Math.ceil(searchData.total_count / 12) > searchData.current_page) {
+      updateIsLoading();
+      apiSearchUsername({
+        username: searchInput,
+        page: searchData.current_page + 1,
+      }).then((res) => {
+        const page = searchData.current_page + 1;
+        const next_page = Math.ceil(res.total_count / 12) > page;
+        const prev_page = page > 1;
+        updateData({ current_page: page, next_page, prev_page, ...res });
+        updateIsLoading();
+      });
+    }
+  };
+
+  const prevPage = () => {
+    if (searchData.current_page > 1) {
+      updateIsLoading();
+      apiSearchUsername({
+        username: searchInput,
+        page: searchData.current_page - 1,
+      }).then((res) => {
+        const page = searchData.current_page - 1;
+        const next_page = Math.ceil(res.total_count / 12) > page;
+        const prev_page = page > 1;
+        updateData({ current_page: page, next_page, prev_page, ...res });
+        updateIsLoading();
+      });
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.parentLoader}>
+          <div className={styles.loader} />
+        </div>
+      </div>
+    );
+  }
+
+  if (isEmpty(searchData.items)) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.emptySearch}>Start Findings</div>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.container}>
-      {/* <div className={styles.emptySearch}>Start Findings</div> */}
-
-      <div className={styles.resultsInfo}>
-        Found 2000 results for
-        <span> CUPAXX</span>
-      </div>
-      <section>
+      {!isEmpty(searchData.items) && (
+        <div className={styles.resultsInfo}>
+          Found <span> {searchData.total_count}</span> results for
+          <span> {searchInput}</span>
+        </div>
+      )}
+      <section className={styles.mainSection}>
         <div className={styles.containerResults}>
-          {Array(12)
-            .fill(0)
-            .map((res, i) => (
-              <UserCard key={i} />
-            ))}
+          {searchData.items.map((res: any) => (
+            <UserCard data={res} key={res.id} />
+          ))}
         </div>
 
         <div className={styles.containerPagination}>
-          <button>
+          <button disabled={!searchData.prev_page} onClick={() => prevPage()}>
             <BiSolidLeftArrow size={20} />
             <p>Prev</p>
           </button>
-          <button>
+          <button disabled={!searchData.next_page} onClick={() => nextPage()}>
             <p>Next</p>
             <BiSolidRightArrow size={20} />
           </button>
