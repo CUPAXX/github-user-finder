@@ -1,0 +1,83 @@
+.container {
+  padding: 10px;
+  background-color: var(--secondary-gray);
+  flex: 1;
+}
+
+.detailRepo {
+  color: var(--main-white);
+  border-bottom: solid 1px var(--main-blue);
+  padding-bottom: 10px;
+}
+
+.detailRepo h1 {
+  font-size: 26px;
+  padding-bottom: 10px;
+}
+
+.repoDesc {
+  font-size: 14px;
+  padding: 0px 0 20px 0;
+}
+
+.repoDate {
+  font-size: 12px;
+  padding: 2px 0px 2px;
+}
+
+.parentRepoButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+.repoButton {
+  padding: 10px 20px 10px 20px;
+  background-color: var(--main-blue);
+  color: var(--main-gray);
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+.containerReadme {
+  border: solid 1px var(--main-blue);
+  margin: 10px 0 10px 0;
+  border-radius: 6px;
+}
+
+.readmeLabel {
+  color: var(--main-white);
+  border-bottom: solid 1px var(--main-blue);
+  padding: 5px 0 5px 5px;
+}
+
+.readmeLabel h1 {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.readmeContent {
+  padding: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For tablet: */
+  .repoDesc {
+    font-size: 18px;
+  }
+  .repoDate {
+    font-size: 14px;
+  }
+  .readmeContent {
+    padding: 10px 20px 10px 20px;
+  }
+  .readmeLabel {
+    padding: 15px 0 15px 15px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  /* For desktop: */
+}

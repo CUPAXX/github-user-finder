@@ -1,10 +1,11 @@
 import styles from "./repoCard.module.css";
 import { FaStar } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";
+import Link from "next/link";
 
 const RepoCard = () => {
   return (
-    <div className={styles.container}>
+    <Link href={"/cupaxx/repo-bakend"} className={styles.container}>
       <h3>cpx-architects</h3>
       <p className={styles.repoDescription}>
         Find github user using username, show detail repository and display
@@ -22,7 +23,7 @@ const RepoCard = () => {
         </div>
         <p>Last push 11 days ago</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -1,0 +1,19 @@
+.markdown {
+  color: var(--main-white);
+}
+
+.markdown h1 {
+  font-size: 28px;
+  padding: 10px 0 10px 0;
+}
+
+.markdown h2 {
+  font-size: 22px;
+  padding: 10px 0 10px 0;
+}
+
+.markdown ol,
+.markdown ul {
+  list-style: disc outside none;
+  margin: 0px 20px 15px 20px;
+}
