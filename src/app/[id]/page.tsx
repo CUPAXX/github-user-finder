@@ -58,7 +58,7 @@ const Page = () => {
         forks_count: val.forks_count,
         created_at: val.created_at,
         updated_at: val.updated_at,
-        url: val.url,
+        html_url: val.html_url,
       }));
       updatelistRepo(resData);
       updateIsLoadingRepo(false);

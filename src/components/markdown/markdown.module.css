@@ -17,3 +17,73 @@
   list-style: disc outside none;
   margin: 0px 20px 15px 20px;
 }
+
+.markdown tr {
+  font-size: 12px;
+}
+
+.markdown table img {
+  display: block;
+  width: 100% !important;
+  min-height: 100%;
+}
+
+.markdown table {
+  border: 1px solid var(--main-gray);
+  max-width: 300px;
+  width: 100%;
+  border-collapse: collapse;
+  position: relative;
+}
+
+.markdown table tr {
+  display: grid;
+}
+
+.markdown table td,
+.markdown table th {
+  padding: 5px;
+  z-index: 10;
+}
+
+.markdown table thead {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  z-index: 20;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.markdown thead tr {
+  width: 100%;
+}
+
+.markdown thead tr th {
+  font-size: 14px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-gray);
+}
+
+@media only screen and (min-width: 768px) {
+  /* For tablet: */
+  .markdown table {
+    max-width: 100%;
+  }
+  .markdown table tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  /* For desktop: */
+  .markdown table tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
