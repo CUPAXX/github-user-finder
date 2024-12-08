@@ -2,9 +2,9 @@
   <p align="center">
     <a href="">View Demo</a>
     ·
-    <a href="">Report Bug</a>
+    <a href="https://github.com/CUPAXX/github-user-finder/issues">Report Bug</a>
     ·
-    <a href="">Request Feature</a>
+    <a href="https://github.com/CUPAXX/github-user-finder/pulls">Request Feature</a>
   </p>
 
 # About The Project
@@ -56,6 +56,10 @@ NEXT_PUBLIC_API_TOKEN=
   <li>Detail Repositories</li>
   <li>Display Readme.md of repository</li>
 </ul>
+
+## Status Deploy
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/238173ca-34aa-47b6-ae91-1c20716cf53d/deploy-status)](https://app.netlify.com/sites/cupaxx-github-finder/deploys)
 
 ## License
 
