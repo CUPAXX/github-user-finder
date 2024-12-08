@@ -1,6 +1,6 @@
 <h1 align='center'>GitHub User Finder</h1>
   <p align="center">
-    <a href="">View Demo</a>
+    <a href="https://cupaxx-github-finder.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/CUPAXX/github-user-finder/issues">Report Bug</a>
     ·
